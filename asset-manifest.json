@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.css": "/commands/static/css/main.ab7136cd.chunk.css",
-    "main.js": "/commands/static/js/main.3efe16d7.chunk.js",
-    "main.js.map": "/commands/static/js/main.3efe16d7.chunk.js.map",
-    "runtime-main.js": "/commands/static/js/runtime-main.bb2604c3.js",
-    "runtime-main.js.map": "/commands/static/js/runtime-main.bb2604c3.js.map",
-    "static/js/2.7b6011ed.chunk.js": "/commands/static/js/2.7b6011ed.chunk.js",
-    "static/js/2.7b6011ed.chunk.js.map": "/commands/static/js/2.7b6011ed.chunk.js.map",
-    "static/js/3.cc273cf7.chunk.js": "/commands/static/js/3.cc273cf7.chunk.js",
-    "static/js/3.cc273cf7.chunk.js.map": "/commands/static/js/3.cc273cf7.chunk.js.map",
+    "main.css": "/commands/static/css/main.eb78964b.chunk.css",
+    "main.js": "/commands/static/js/main.4d56f8c6.chunk.js",
+    "main.js.map": "/commands/static/js/main.4d56f8c6.chunk.js.map",
+    "runtime-main.js": "/commands/static/js/runtime-main.4690004c.js",
+    "runtime-main.js.map": "/commands/static/js/runtime-main.4690004c.js.map",
+    "static/js/2.4126d465.chunk.js": "/commands/static/js/2.4126d465.chunk.js",
+    "static/js/2.4126d465.chunk.js.map": "/commands/static/js/2.4126d465.chunk.js.map",
+    "static/js/3.8150b169.chunk.js": "/commands/static/js/3.8150b169.chunk.js",
+    "static/js/3.8150b169.chunk.js.map": "/commands/static/js/3.8150b169.chunk.js.map",
     "index.html": "/commands/index.html",
-    "static/css/main.ab7136cd.chunk.css.map": "/commands/static/css/main.ab7136cd.chunk.css.map",
-    "static/js/2.7b6011ed.chunk.js.LICENSE.txt": "/commands/static/js/2.7b6011ed.chunk.js.LICENSE.txt"
+    "static/css/main.eb78964b.chunk.css.map": "/commands/static/css/main.eb78964b.chunk.css.map",
+    "static/js/2.4126d465.chunk.js.LICENSE.txt": "/commands/static/js/2.4126d465.chunk.js.LICENSE.txt",
+    "static/media/command.fde68e8d.png": "/commands/static/media/command.fde68e8d.png",
+    "static/media/linux.acfdf48f.png": "/commands/static/media/linux.acfdf48f.png",
+    "static/media/windows.d56a4f2b.png": "/commands/static/media/windows.d56a4f2b.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.bb2604c3.js",
-    "static/js/2.7b6011ed.chunk.js",
-    "static/css/main.ab7136cd.chunk.css",
-    "static/js/main.3efe16d7.chunk.js"
+    "static/js/runtime-main.4690004c.js",
+    "static/js/2.4126d465.chunk.js",
+    "static/css/main.eb78964b.chunk.css",
+    "static/js/main.4d56f8c6.chunk.js"
   ]
 }
