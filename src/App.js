@@ -1,9 +1,13 @@
 import './App.css';
+import Home from './pages/Home';
+import Container from '@material-ui/core/Container';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">Commands -&gt; coming soon</header>
+      <Container maxWidth={'xl'}>
+        <Home />
+      </Container>
     </div>
   );
 }
