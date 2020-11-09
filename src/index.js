@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <App />
       <ToastContainer
         position="top-center"
