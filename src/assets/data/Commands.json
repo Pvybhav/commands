@@ -1,0 +1,38 @@
+{
+  "git": [
+    {
+      "text": "git --version",
+      "description": "To get version of git"
+    },
+    {
+      "text": "git add <path/to/file/file-name.ext>",
+      "description": "Add file contents to the index"
+    }
+  ],
+  "npm": [
+    {
+      "text": "npm -v",
+      "description": "To get version of npm",
+      "alternateText": "npm --version"
+    }
+  ],
+  "windows": [
+    {
+      "text": "winver",
+      "description": "To get version of windows"
+    }
+  ],
+  "linux": [
+    {
+      "text": "lsb_release -a",
+      "description": "To get version of linux"
+    }
+  ],
+  "docker": [
+    {
+      "text": "docker -v",
+      "description": "To get version of docker",
+      "alternateText": "docker --version"
+    }
+  ]
+}

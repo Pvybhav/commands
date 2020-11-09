@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders commands text', () => {
+test('renders "Select Category" text', () => {
   render(<App />);
-  const linkElement = screen.getByText(/commands/i);
+  const linkElement = screen.getByText(/Select Category/i);
   expect(linkElement).toBeInTheDocument();
 });

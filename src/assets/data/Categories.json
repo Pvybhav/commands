@@ -2,31 +2,31 @@
   {
     "name": "Git",
     "description": "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. Git is easy to learn and has a tiny footprint with lightning fast performance.",
-    "iconPath": "",
+    "fontAwesomeIconName": "fab fa-github",
     "documentationUrl": "https://git-scm.com/docs/git"
   },
   {
     "name": "NPM",
     "description": "npm is a package manager for the JavaScript programming language. npm, Inc. is a subsidiary of GitHub, an American multinational corporation that provides hosting for software development and version control with the usage of Git. It is the default package manager for the JavaScript runtime environment Node.js.",
-    "iconPath": "",
+    "fontAwesomeIconName": "fab fa-npm",
     "documentationUrl": "https://docs.npmjs.com/getting-started"
   },
   {
     "name": "Windows",
     "description": "cmd.exe is the default command-line interpreter for the OS/2, eComStation, ArcaOS, Microsoft Windows, and ReactOS operating systems. The name refers to its executable filename. It is also commonly referred to as cmd or the Command Prompt, referring to the default window title on Windows.",
-    "iconPath": "",
+    "fontAwesomeIconName": "fab fa-windows",
     "documentationUrl": "https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands"
   },
   {
     "name": "Linux",
     "description": "Linux is a family of open-source Unix-like operating systems based on the Linux kernel, an operating system kernel first released on September 17, 1991, by Linus Torvalds. Linux is typically packaged in a Linux distribution.",
-    "iconPath": "",
+    "fontAwesomeIconName": "fab fa-linux",
     "documentationUrl": "https://ubuntu.com/tutorials/command-line-for-beginners"
   },
   {
     "name": "Docker",
     "description": "Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers. Containers are isolated from one another and bundle their own software, libraries and configuration files; they can communicate with each other through well-defined channels.",
-    "iconPath": "",
+    "fontAwesomeIconName": "fab fa-docker",
     "documentationUrl": "https://docs.docker.com/engine/reference/commandline/docker/"
   }
 ]

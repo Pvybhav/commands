@@ -1,14 +1,17 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import {
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Button,
+  Typography,
+} from '@material-ui/core';
 import { Star, ChromeReaderMode } from '@material-ui/icons';
+import { NavLink } from 'react-router-dom';
 import GitIcon from '../assets/images/git.png';
 import NpmIcon from '../assets/images/npm.png';
 import WindowsIcon from '../assets/images/windows.png';
@@ -28,6 +31,7 @@ const useStyles = makeStyles({
     width: '50',
     textAlign: 'center',
   },
+  active: { background: 'papayawhip' },
 });
 
 const CategoryCard = ({ title, description, iconPath, documentationUrl }) => {
@@ -55,19 +59,24 @@ const CategoryCard = ({ title, description, iconPath, documentationUrl }) => {
           title="Contemplative Reptile"
           style={{ width: '50%', height: '90px', margin: 'auto' }}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {title}
-          </Typography>
-          <Typography
-            variant="body2"
-            color="textSecondary"
-            component="p"
-            style={{ height: '150px' }}
-          >
-            {description}
-          </Typography>
-        </CardContent>
+        <NavLink
+          to={`/category/${title.toLowerCase()}`}
+          style={{ textDecoration: 'none' }}
+        >
+          <CardContent className={'hello'}>
+            <Typography gutterBottom variant="h5" component="h2">
+              {title}
+            </Typography>
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              component="p"
+              style={{ height: '150px' }}
+            >
+              {description}
+            </Typography>
+          </CardContent>
+        </NavLink>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">

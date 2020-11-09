@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
+import { Grid, Container } from '@material-ui/core';
 import { v4 as uuid } from 'uuid';
 import CategoryCard from '../components/CategoryCard';
 import Navbar from '../components/Navbar';
