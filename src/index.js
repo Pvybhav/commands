@@ -8,13 +8,11 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 console.log(
   process.env.PUBLIC_URL,
-  `${document.location.hostname}/${process.env.PUBLIC_URL}`,
+  `${document.location.hostname}${process.env.PUBLIC_URL}`,
 );
 ReactDOM.render(
   <React.StrictMode>
-    <Router
-      basename={`${document.location.hostname}/${process.env.PUBLIC_URL}`}
-    >
+    <Router basename={`${document.location.hostname}${process.env.PUBLIC_URL}`}>
       <App />
       <ToastContainer
         position="top-center"
