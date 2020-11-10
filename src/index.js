@@ -12,7 +12,7 @@ console.log(
 );
 ReactDOM.render(
   <React.StrictMode>
-    <Router basename={`${document.location.hostname}${process.env.PUBLIC_URL}`}>
+    <Router basename={`${process.env.PUBLIC_URL}`}>
       <App />
       <ToastContainer
         position="top-center"
