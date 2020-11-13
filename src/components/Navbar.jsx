@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Navbar() {
+export default function Navbar({filterText, setFilterText}) {
   const classes = useStyles();
 
   return (
@@ -82,6 +82,8 @@ export default function Navbar() {
                 input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'search' }}
+              value={filterText}
+              onChange={e => setFilterText(e.target.value)}
             />
           </div>
         </Toolbar>

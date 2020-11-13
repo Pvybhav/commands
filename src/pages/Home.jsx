@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Container } from '@material-ui/core';
 import { v4 as uuid } from 'uuid';
@@ -19,17 +19,21 @@ const useStyles = makeStyles(theme => ({
 
 export default function Home() {
   const classes = useStyles();
+  const [filterText, setFilterText] = useState('');
 
-  function CategoriesList() {
+  function CategoriesList({ filterText }) {
     return (
       <Grid container item xs={12} spacing={3} style={{ margin: '20px' }}>
-        {Categories.map(({ name, description, iconPath, documentationUrl }) => (
+        {Categories.filter(({ name }) =>
+          name.toLowerCase().includes(filterText.toLowerCase()),
+        ).map(({ name, description, iconPath, documentationUrl }) => (
           <Grid key={uuid()} item xs={4} direction="row">
             <CategoryCard
               title={name}
               description={description}
               iconPath={iconPath}
               documentationUrl={documentationUrl}
+              filterText={filterText}
             />
           </Grid>
         ))}
@@ -39,10 +43,10 @@ export default function Home() {
 
   return (
     <div className={classes.root}>
-      <Navbar />
+      <Navbar filterText={filterText} setFilterText={setFilterText} />
       <Container fixed>
         <Grid container spacing={4}>
-          <CategoriesList />
+          <CategoriesList filterText={filterText} />
         </Grid>
       </Container>
     </div>

@@ -16,19 +16,21 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function CommandsList({ category = 'git' }) {
+export default function CommandsList({ category = 'git', filterText }) {
   const classes = useStyles();
   const commands = UseCommands(category);
 
   return (
     <List className={classes.root}>
-      {commands.map((command, index) => (
-        <CommandRow
-          key={uuid()}
-          command={command}
-          isLastItem={Boolean(index === commands.length - 1)}
-        />
-      ))}
+      {commands
+        .filter(({ text }) => text.toLowerCase().includes(filterText.toLowerCase()))
+        .map((command, index) => (
+          <CommandRow
+            key={uuid()}
+            command={command}
+            isLastItem={Boolean(index === commands.length - 1)}
+          />
+        ))}
     </List>
   );
 }

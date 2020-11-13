@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import clsx from 'clsx';
 import { fade, makeStyles, useTheme } from '@material-ui/core/styles';
 import {
@@ -143,7 +143,8 @@ const useStyles = makeStyles(theme => ({
 export default function CategoryNavbar({ category }) {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [filterText, setFilterText] = useState('');
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -192,6 +193,8 @@ export default function CategoryNavbar({ category }) {
                 input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'search' }}
+              value={filterText}
+              onChange={e => setFilterText(e.target.value)}
             />
           </div>
           <NavLink
@@ -235,7 +238,7 @@ export default function CategoryNavbar({ category }) {
         <Divider />
         <List>
           {Categories.map(({ name, fontAwesomeIconName }) => (
-            <React.Fragment key={uuid()}>
+            <Fragment key={uuid()}>
               <NavLink
                 to={`/category/${name.toLowerCase()}`}
                 style={{ textDecoration: 'none' }}
@@ -251,13 +254,13 @@ export default function CategoryNavbar({ category }) {
                 </ListItem>
               </NavLink>
               <Divider />
-            </React.Fragment>
+            </Fragment>
           ))}
         </List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar}></div>
-        <CommandsList category={category} />
+        <CommandsList category={category} filterText={filterText} />
       </main>
     </div>
   );
