@@ -91,7 +91,7 @@ const CategoryCard = ({ title, description, iconPath, documentationUrl }) => {
           <Star style={{ fill: 'yellow' }} />
         </Button>
         <Button size="small" color="primary">
-          <a href={documentationUrl} target="_blank">
+          <a href={documentationUrl} target="_blank" rel="noopener">
             <ChromeReaderMode />
           </a>
         </Button>
