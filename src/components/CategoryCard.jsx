@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {
   Card,
   CardActionArea,
@@ -19,12 +19,20 @@ import LinuxIcon from '../assets/images/linux.png';
 import DockerIcon from '../assets/images/docker.png';
 import DefaultIcon from '../assets/images/command.png';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     margin: 15,
     maxWidth: 345,
     height: 370,
     textAlign: 'center',
+    [theme.breakpoints.down('sm')]: {
+      margin: 0,
+      marginTop: 10,
+      marginBottom: 10,
+    },
+    [theme.breakpoints.down('md')]: {
+      margin: 10,
+    },
   },
   media: {
     height: 100,
@@ -32,7 +40,7 @@ const useStyles = makeStyles({
     textAlign: 'center',
   },
   active: { background: 'papayawhip' },
-});
+}));
 
 const CategoryCard = ({ title, description, iconPath, documentationUrl }) => {
   const classes = useStyles();

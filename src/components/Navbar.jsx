@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Navbar({filterText, setFilterText}) {
+export default function Navbar({ filterText, setFilterText }) {
   const classes = useStyles();
 
   return (

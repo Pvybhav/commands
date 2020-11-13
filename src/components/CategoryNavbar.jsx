@@ -35,28 +35,44 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['width', 'margin'], {
+    transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
   },
   appBarShift: {
-    marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
+    marginLeft: drawerWidth,
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
   homeButton: {
-    marginRight: 10,
+    // marginRight: 10,
     marginLeft: 10,
     color: 'honeydew',
+    [theme.breakpoints.down('sm')]: {
+      marginRight: 0,
+      marginLeft: 0,
+    },
+  },
+  title: {
+    textAlign: 'left',
+    fontSize: '1.5rem',
+    [theme.breakpoints.down('sm')]: {
+      display: 'block',
+      fontSize: '1rem',
+      marginRight: 10,
+    },
   },
   menuButton: {
     marginLeft: 36,
     marginRight: 36,
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 0,
+      marginRight: 0,
+    },
   },
   hide: {
     display: 'none',
@@ -64,7 +80,17 @@ const useStyles = makeStyles(theme => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    whiteSpace: 'nowrap',
+  },
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  drawerHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: theme.spacing(0, 1),
+    // necessary for content to be below app bar
+    ...theme.mixins.toolbar,
+    justifyContent: 'flex-end',
   },
   drawerOpen: {
     width: drawerWidth,
@@ -95,6 +121,18 @@ const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: -drawerWidth,
+  },
+  contentShift: {
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginLeft: 0,
   },
   search: {
     position: 'relative',
@@ -137,6 +175,19 @@ const useStyles = makeStyles(theme => ({
   },
   activeItem: {
     color: 'green',
+  },
+  sidebarIcon: {
+    width: '1.5em',
+    fontSize: 40,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 30,
+    },
+    [theme.breakpoints.up('sm')]: {
+      fontSize: 35,
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: 40,
+    },
   },
 }));
 
@@ -214,16 +265,12 @@ export default function CategoryNavbar({ category }) {
         </Toolbar>
       </AppBar>
       <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
+        className={classes.drawer}
+        variant="persistent"
+        anchor="left"
+        open={open}
         classes={{
-          paper: clsx({
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          }),
+          paper: classes.drawerPaper,
         }}
       >
         <div className={classes.toolbar}>
@@ -246,8 +293,7 @@ export default function CategoryNavbar({ category }) {
                 <ListItem button key={name}>
                   <ListItemIcon>
                     <Icon
-                      className={fontAwesomeIconName}
-                      style={{ fontSize: 40 }}
+                      className={`${fontAwesomeIconName} ${classes.sidebarIcon}`}
                     />
                   </ListItemIcon>
                   <ListItemText primary={name} />
@@ -258,7 +304,12 @@ export default function CategoryNavbar({ category }) {
           ))}
         </List>
       </Drawer>
-      <main className={classes.content}>
+
+      <main
+        className={clsx(classes.content, {
+          [classes.contentShift]: open,
+        })}
+      >
         <div className={classes.toolbar}></div>
         <CommandsList category={category} filterText={filterText} />
       </main>

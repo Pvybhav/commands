@@ -11,9 +11,20 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(2),
+    // padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+  },
+  grid: {
+    padding: 0,
+    margin: 0,
+    [theme.breakpoints.up('sm')]: {
+      margin: 20,
+    },
+  },
+  cardGrid: {
+    padding: 0,
+    margin: 0,
   },
 }));
 
@@ -23,11 +34,18 @@ export default function Home() {
 
   function CategoriesList({ filterText }) {
     return (
-      <Grid container item xs={12} spacing={3} style={{ margin: '20px' }}>
+      <Grid
+        container
+        // item
+        // xs={12}
+        spacing={3}
+        className={classes.grid}
+        // justify="left"
+      >
         {Categories.filter(({ name }) =>
           name.toLowerCase().includes(filterText.toLowerCase()),
         ).map(({ name, description, iconPath, documentationUrl }) => (
-          <Grid key={uuid()} item xs={4} direction="row">
+          <Grid key={uuid()} direction="row" xs={12} sm={6} md={4} lg={3}>
             <CategoryCard
               title={name}
               description={description}
@@ -45,7 +63,7 @@ export default function Home() {
     <div className={classes.root}>
       <Navbar filterText={filterText} setFilterText={setFilterText} />
       <Container fixed>
-        <Grid container spacing={4}>
+        <Grid container className={classes.cardGrid}>
           <CategoriesList filterText={filterText} />
         </Grid>
       </Container>
