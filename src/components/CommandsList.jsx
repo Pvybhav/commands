@@ -2,8 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import { v4 as uuid } from 'uuid';
-import CommandRow from './CommandRow';
 import UseCommands from '../hooks/UseCommands';
+const CommandRow = React.lazy(() => import('./CommandRow'));
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,7 +23,9 @@ export default function CommandsList({ category = 'git', filterText }) {
   return (
     <List className={classes.root}>
       {commands
-        .filter(({ text }) => text.toLowerCase().includes(filterText.toLowerCase()))
+        .filter(({ text }) =>
+          text.toLowerCase().includes(filterText.toLowerCase()),
+        )
         .map((command, index) => (
           <CommandRow
             key={uuid()}

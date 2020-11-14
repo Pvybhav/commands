@@ -26,7 +26,7 @@ import {
 import { NavLink } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
 import Categories from '../assets/data/Categories.json';
-import CommandsList from './CommandsList';
+const CommandsList = React.lazy(() => import('./CommandsList'));
 
 const drawerWidth = 240;
 
