@@ -5,8 +5,38 @@
       "description": "To get version of git"
     },
     {
+      "text": "git init",
+      "description": "Create an empty Git repository or reinitialize an existing one"
+    },
+    {
+      "text": "git clone",
+      "description": "Clone a repository into a new directory"
+    },
+    {
       "text": "git add <path/to/file/file-name.ext>",
-      "description": "Add file contents to the index"
+      "description": "Add file contents to the index",
+      "alternateText": "git add ."
+    },
+    {
+      "text": "git status",
+      "description": "Show the working tree status"
+    },
+    {
+      "text": "git reset",
+      "description": "Reset current HEAD to the specified state"
+    },
+    {
+      "text": "git mv",
+      "description": "Move or rename a file, a directory, or a symlink"
+    },
+    {
+      "text": "git rm",
+      "description": "Remove files from the working tree and from the index"
+    },
+    {
+      "text": "git --help",
+      "description": "To get help of git commands",
+      "alternateText": "git help"
     }
   ],
   "npm": [

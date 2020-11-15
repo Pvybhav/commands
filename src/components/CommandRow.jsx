@@ -10,7 +10,9 @@ import {
   Zoom,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import Highlighter from 'react-highlight-words';
 import handleCopyCommand from '../helpers/copy-command';
+
 const useStyles = makeStyles(theme => ({
   inline: {
     display: 'inline',
@@ -24,9 +26,16 @@ const useStyles = makeStyles(theme => ({
   unSelectable: {
     userSelect: 'none',
   },
+  filteredText: {
+    color: 'primary',
+  },
 }));
 
-const CommandRow = ({ command: { text, description }, isLastItem }) => {
+const CommandRow = ({
+  command: { text, description },
+  isLastItem,
+  filterText,
+}) => {
   const classes = useStyles();
 
   return (
@@ -50,7 +59,12 @@ const CommandRow = ({ command: { text, description }, isLastItem }) => {
         <ListItemText
           primary={
             <b className={`${classes.command} ${classes.unSelectable}`}>
-              {text}
+              <Highlighter
+                highlightClassName={classes.filteredText}
+                searchWords={[...filterText.split(' ')]}
+                autoEscape={true}
+                textToHighlight={text}
+              />
             </b>
           }
           secondary={

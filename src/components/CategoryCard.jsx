@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import { Star, ChromeReaderMode } from '@material-ui/icons';
 import { NavLink } from 'react-router-dom';
+import Highlighter from 'react-highlight-words';
 import GitIcon from '../assets/images/git.png';
 import NpmIcon from '../assets/images/npm.png';
 import WindowsIcon from '../assets/images/windows.png';
@@ -42,7 +43,13 @@ const useStyles = makeStyles(theme => ({
   active: { background: 'papayawhip' },
 }));
 
-const CategoryCard = ({ title, description, iconPath, documentationUrl }) => {
+const CategoryCard = ({
+  title,
+  description,
+  iconPath,
+  documentationUrl,
+  filterText,
+}) => {
   const classes = useStyles();
   const categoryTitle = title.toLowerCase();
 
@@ -73,7 +80,12 @@ const CategoryCard = ({ title, description, iconPath, documentationUrl }) => {
         >
           <CardContent className={'hello'}>
             <Typography gutterBottom variant="h5" component="h2">
-              {title}
+              <Highlighter
+                highlightClassName={classes.filteredText}
+                searchWords={[...filterText.split(' ')]}
+                autoEscape={true}
+                textToHighlight={title}
+              />
             </Typography>
             <Typography
               variant="body2"
