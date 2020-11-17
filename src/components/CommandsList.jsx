@@ -18,10 +18,13 @@ export default function CommandsList({ category = 'git', filterText }) {
   const classes = useStyles();
   const commands = UseCommands(category);
   const [page, setPage] = React.useState(1);
-  const [noOfCommandsPerPage] = React.useState(5);
+  const [noOfCommandsPerPage] = React.useState(7);
   const handleChange = (event, value) => {
     setPage(value);
   };
+  React.useEffect(() => {
+    setPage(1);
+  }, [window.location.href]);
 
   const filteredCommands = [...commands].filter(({ text }) =>
     text.toLowerCase().includes(filterText.toLowerCase()),

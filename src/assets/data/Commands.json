@@ -34,6 +34,34 @@
       "description": "Remove files from the working tree and from the index"
     },
     {
+      "text": "git stash",
+      "description": "Stash the changes in a dirty working directory away. The command saves your local modifications away and reverts the working directory to match the HEAD commit"
+    },
+    {
+      "text": "git stash list",
+      "description": "List the stash entries that you currently have"
+    },
+    {
+      "text": "git stash show [<stash>]",
+      "description": "Show the changes recorded in the stash entry as a diff between the stashed contents and the commit back when the stash entry was first created. When no <stash> is given, it shows the latest one"
+    },
+    {
+      "text": "git stash pop [--index] [-q|--quiet] [<stash>]",
+      "description": "Remove a single stashed state from the stash list and apply it on top of the current working tree state"
+    },
+    {
+      "text": "git stash apply [--index] [-q|--quiet] [<stash>]",
+      "description": "Like pop, but do not remove the state from the stash list. Unlike pop, <stash> may be any commit that looks like a commit created by stash push or stash create"
+    },
+    {
+      "text": "git stash clear",
+      "description": "Remove all the stash entries"
+    },
+    {
+      "text": "git stash drop [-q|--quiet] [<stash>]",
+      "description": "Remove all the stash entries"
+    },
+    {
       "text": "git --help",
       "description": "To get help of git commands",
       "alternateText": "git help"
