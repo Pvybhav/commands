@@ -196,6 +196,7 @@ export default function CategoryNavbar({ category }) {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [filterText, setFilterText] = useState('');
+  const [page, setPage] = React.useState(1);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -203,6 +204,11 @@ export default function CategoryNavbar({ category }) {
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  const handleChangeFilterText = e => {
+    setPage(1);
+    setFilterText(e.target.value);
   };
 
   return (
@@ -245,7 +251,7 @@ export default function CategoryNavbar({ category }) {
               }}
               inputProps={{ 'aria-label': 'search' }}
               value={filterText}
-              onChange={e => setFilterText(e.target.value)}
+              onChange={e => handleChangeFilterText(e)}
             />
           </div>
           <NavLink
@@ -311,7 +317,12 @@ export default function CategoryNavbar({ category }) {
         })}
       >
         <div className={classes.toolbar}></div>
-        <CommandsList category={category} filterText={filterText} />
+        <CommandsList
+          category={category}
+          filterText={filterText}
+          page={page}
+          setPage={setPage}
+        />
       </main>
     </div>
   );

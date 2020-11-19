@@ -14,10 +14,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function CommandsList({ category = 'git', filterText }) {
+export default function CommandsList({
+  category = 'git',
+  filterText,
+  page,
+  setPage,
+}) {
   const classes = useStyles();
   const commands = UseCommands(category);
-  const [page, setPage] = React.useState(1);
   const [noOfCommandsPerPage] = React.useState(7);
   const handleChange = (event, value) => {
     setPage(value);
