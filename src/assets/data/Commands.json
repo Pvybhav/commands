@@ -9,13 +9,29 @@
       "description": "Create an empty Git repository or reinitialize an existing one"
     },
     {
+      "text": "git init [-q|--quiet]",
+      "description": "Only print error and warning messages; all other output will be suppressed"
+    },
+    {
+      "text": "git init --bare",
+      "description": "Create a bare repository. If GIT_DIR environment is not set, it is set to the current working directory (it replaces '.git' folder with the value of GIT_DIR environment variable)"
+    },
+    {
+      "text": "git init --separate-git-dir=<git dir>",
+      "description": "Instead of initializing the repository as a directory to either $GIT_DIR or ./.git/, create a text file there containing the path to the actual repository. This file acts as filesystem-agnostic Git symbolic link to the repository. If this is reinitialization, the repository will be moved to the specified path (Creates a folder with the specified folder name and creates | updates folder path inside 'git_directory' file)"
+    },
+    {
+      "text": "git init <git_dir>",
+      "description": "It is same as 'git init --separate-git-dir=<git_dir>', but it do not create 'git_directory' file"
+    },
+    {
       "text": "git clone",
       "description": "Clone a repository into a new directory"
     },
     {
       "text": "git add <path/to/file/file-name.ext>",
       "description": "Add file contents to the index",
-      "alternateText": "git add ."
+      "alternateCommands": ["git add ."]
     },
     {
       "text": "git status",
@@ -64,14 +80,69 @@
     {
       "text": "git --help",
       "description": "To get help of git commands",
-      "alternateText": "git help"
+      "alternateCommands": ["git help"]
     }
   ],
   "npm": [
     {
       "text": "npm -v",
       "description": "To get version of npm",
-      "alternateText": "npm --version"
+      "alternateCommands": ["npm --version"]
+    },
+    {
+      "text": "npm login",
+      "description": "Used to login to the terminal/command prompt",
+      "alternateCommands": ["npm adduser"]
+    },
+    {
+      "text": "npm login registry.npmjs.org",
+      "description": "Login to the terminal/command prompt using npm registry.",
+      "alternateCommands": ["npm adduser registry.npmjs.org"]
+    },
+    {
+      "text": "npm whoami",
+      "description": "To get the username of logged-in user"
+    },
+    {
+      "text": "npm logout",
+      "description": "To logout of the npm"
+    },
+    {
+      "text": "npm logout registry.npmjs.org",
+      "description": "To logout of the npm registry"
+    },
+    {
+      "text": "npm <command> -h",
+      "description": "To get quick help of the <command>",
+      "alternateCommands": ["npm <command> --help"]
+    },
+    {
+      "text": "npm help <term>",
+      "description": "Search for help on <term>"
+    },
+    {
+      "text": "npm -l",
+      "description": "Display full usage info"
+    },
+    {
+      "text": "npm star <package>",
+      "description": "To add star to the specific <package>. Starring repeatedly has no additional effect"
+    },
+    {
+      "text": "npm unstar <package>",
+      "description": "To remove star to the specific <package>"
+    },
+    {
+      "text": "npm ls",
+      "description": "To list the packages and their peer dependencies in current directory"
+    },
+    {
+      "text": "npm ls --depth=0",
+      "description": "To list the packages without their peer dependencies in current directory"
+    },
+    {
+      "text": "npm ls --prod",
+      "description": "To list only the production packages and their peer dependencies in current directory"
     }
   ],
   "windows": [
@@ -90,7 +161,24 @@
     {
       "text": "docker -v",
       "description": "To get version of docker",
-      "alternateText": "docker --version"
+      "alternateCommands": ["docker --version"]
+    },
+    {
+      "text": "docker login",
+      "description": "Log in to a Docker registry (hub.docker.com)",
+      "alternateCommands": [
+        "docker login <host_name>",
+        "docker login [<host_name>] [-u|--username] <user_name> [-p|--password] <password>",
+        "docker login [<host_name>] [-u|--username] <user_name>"
+      ]
+    },
+    {
+      "text": "docker logout",
+      "description": "Log out from a Docker registry"
+    },
+    {
+      "text": "docker search <search_term>",
+      "description": "Log out from a Docker registry"
     }
   ]
 }
