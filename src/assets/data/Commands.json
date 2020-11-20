@@ -143,6 +143,64 @@
     {
       "text": "npm ls --prod",
       "description": "To list only the production packages and their peer dependencies in current directory"
+    },
+    {
+      "text": "npm ping",
+      "description": "Ping the configured or given npm registry and verify authentication",
+      "alternateCommands": [
+        "npm ping <registry_hostname>",
+        "npm ping --registry=<registry_hostname>",
+        "npm ping --registry=<registry_url>"
+      ]
+    },
+    {
+      "text": "npm bin",
+      "description": "Print the folder where npm will install executables"
+    },
+    {
+      "text": "npm bin -g",
+      "description": "Print the folder where npm will install global executables",
+      "alternateCommands": ["npm bin --global"]
+    },
+    {
+      "text": "npm root",
+      "description": "Print the effective node_modules folder to standard out"
+    },
+    {
+      "text": "npm root -g",
+      "description": "Print the effective global node_modules folder to standard out",
+      "alternateCommands": ["npm root --global"]
+    },
+    {
+      "text": "npm prefix",
+      "description": "Print the local prefix to standard out. This is the closest parent directory to contain a package.json file or node_modules directory"
+    },
+    {
+      "text": "npm prefix -g",
+      "description": "Print the global prefix to standard out",
+      "alternateCommands": ["npm prefix --global"]
+    },
+    {
+      "text": "npm fund",
+      "description": "To retrieve information on how to fund the dependencies of a given project"
+    },
+    {
+      "text": "npm fund <package_name>",
+      "description": "To open donation page of <package_name>"
+    },
+    {
+      "text": "npm fund --json",
+      "description": "To retrieve information on how to fund the dependencies of a given project in json format"
+    },
+    {
+      "text": "npm docs <package_name>",
+      "description": "This command tries to guess at the likely location of a package's documentation URL, and then tries to open it using the --browser config param. You can pass multiple package names at once. If no package name is provided, it will search for a package.json in the current folder and use the name property",
+      "alternateCommands": ["npm home <package_name>"]
+    },
+    {
+      "text": "npm docs .",
+      "description": "Opens 'homepage' url which is given in 'package.json'. If not it tries to guess at the likely location of a package's documentation URL, and then tries to open it using the --browser config param. You can pass multiple package names at once. If no package name is provided, it will search for a package.json in the current folder and use the name property",
+      "alternateCommands": ["npm home ."]
     }
   ],
   "windows": [
