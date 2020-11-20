@@ -28,7 +28,7 @@ export default function CommandsList({
   };
   React.useEffect(() => {
     setPage(1);
-  }, [window.location.href]);
+  }, [setPage]);
 
   const filteredCommands = [...commands].filter(({ text }) =>
     text.toLowerCase().includes(filterText.toLowerCase()),
