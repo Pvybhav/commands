@@ -52,7 +52,7 @@ const CommandRow = ({
             className={classes.avatar}
           >
             <Avatar alt="Copy" src={'dummy.jpg'}>
-              <i className="fas fa-clipboard"></i>
+              <i className="fa fa-copy"></i>
             </Avatar>
           </ListItemAvatar>
         </Tooltip>

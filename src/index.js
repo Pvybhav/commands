@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { HashRouter as Router } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import 'font-awesome/css/font-awesome.css';
 
 ReactDOM.render(
   <React.StrictMode>
