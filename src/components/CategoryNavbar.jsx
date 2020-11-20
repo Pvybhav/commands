@@ -298,9 +298,9 @@ export default function CategoryNavbar({ category }) {
               >
                 <ListItem button key={name}>
                   <ListItemIcon>
-                    <Icon
+                    <i
                       className={`${fontAwesomeIconName} ${classes.sidebarIcon}`}
-                    />
+                    ></i>
                   </ListItemIcon>
                   <ListItemText primary={name} />
                 </ListItem>
