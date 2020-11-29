@@ -81,6 +81,98 @@
       "text": "git --help",
       "description": "To get help of git commands",
       "alternateCommands": ["git help"]
+    },
+    {
+      "text": "git branch",
+      "description": "To list the existing branches",
+      "alternateCommands": ["git branch --list"]
+    },
+    {
+      "text": "git branch <branch_name>",
+      "description": "To create a branch with the name <branch_name>"
+    },
+    {
+      "text": "git checkout <branch_name>",
+      "description": "To navigate to branch with the name <branch_name>"
+    },
+    {
+      "text": "git checkout -b <branch_name>",
+      "description": "To create and navigate to branch with the name <branch_name>"
+    },
+    {
+      "text": "git branch -d <branch_name>",
+      "description": "Delete a <branch_name>. The branch must be fully merged in its upstream branch, or in HEAD if no upstream was set with --track or --set-upstream-to",
+      "alternateCommands": ["git branch --delete"]
+    },
+    {
+      "text": "git branch -D <branch_name>",
+      "description": "Shortcut for --delete --force"
+    },
+    {
+      "text": "git branch -m <branch_name>",
+      "description": "To rename current branch to <branch_name>",
+      "alternateCommands": ["git branch --move <branch_name>"]
+    },
+    {
+      "text": "git branch -M <branch_name>",
+      "description": "Shortcut for --move --force"
+    },
+    {
+      "text": "git branch -c <branch_name>",
+      "description": "To create copy of existing branch",
+      "alternateCommands": ["git branch --copy <branch_name>"]
+    },
+    {
+      "text": "git branch -C <branch_name>",
+      "description": "Shortcut for --copy --force"
+    },
+    {
+      "text": "git branch --color=[always|never|auto]",
+      "description": "Color branches to highlight current, local, and remote-tracking branches. The value must be always (the default), never, or auto"
+    },
+    {
+      "text": "git branch --no-color",
+      "description": "Turn off branch colors, even when the configuration file gives the default to color output. Same as --color=never"
+    },
+    {
+      "text": "git branch -i",
+      "description": "Sorting and filtering branches are case insensitive",
+      "alternateCommands": ["git branch --ignore-case"]
+    },
+    {
+      "text": "git branch --column=[always|never]",
+      "description": "Display branch listing in columns. See configuration variable column.branch for option syntax.--column and --no-column without options are equivalent to always and never respectively. This option is only applicable in non-verbose mode",
+      "alternateCommands": ["git branch --no-column"]
+    },
+    {
+      "text": "git branch -r",
+      "description": "To list remote-tracking branches",
+      "alternateCommands": ["git branch --remotes"]
+    },
+    {
+      "text": "git branch -a",
+      "description": "List both remote-tracking branches and local branches",
+      "alternateCommands": ["git branch --all"]
+    },
+    {
+      "text": "git branch -v",
+      "description": "To show hash and subject, give twice for upstream branch",
+      "alternateCommands": ["git branch --verbose"],
+      "type": "common"
+    },
+    {
+      "text": "git branch -q",
+      "description": "To suppress informational messages",
+      "alternateCommands": ["git branch --quiet"],
+      "type": "common"
+    },
+    {
+      "text": "git branch --contains <commit_id>",
+      "description": "To print only branches that contain the commit"
+    },
+    {
+      "text": "git branch --no-contains <commit_id>",
+      "description": "To print only branches that don't contain the commit"
     }
   ],
   "npm": [
@@ -236,7 +328,7 @@
     },
     {
       "text": "docker search <search_term>",
-      "description": "Log out from a Docker registry"
+      "description": "Search the Docker Hub for images"
     }
   ]
 }
