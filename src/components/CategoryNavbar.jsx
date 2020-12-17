@@ -14,7 +14,6 @@ import {
   ListItemIcon,
   ListItemText,
   InputBase,
-  Icon,
 } from '@material-ui/core';
 import {
   Menu as MenuIcon,
@@ -22,6 +21,7 @@ import {
   ChevronRight as ChevronRightIcon,
   Home as HomeIcon,
   Search as SearchIcon,
+  SortByAlpha as SortIcon,
 } from '@material-ui/icons';
 import { NavLink } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
@@ -197,6 +197,10 @@ export default function CategoryNavbar({ category }) {
   const [open, setOpen] = useState(false);
   const [filterText, setFilterText] = useState('');
   const [page, setPage] = React.useState(1);
+  const [sort, setSort] = React.useState(null);
+
+  const toggleSort = () =>
+    setSort(s => (s === null || s === false ? true : false));
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -254,6 +258,10 @@ export default function CategoryNavbar({ category }) {
               onChange={e => handleChangeFilterText(e)}
             />
           </div>
+          <SortIcon
+            style={{ margin: '0px 15px', cursor: 'pointer' }}
+            onClick={() => toggleSort()}
+          />
           <NavLink
             to="/categories"
             style={{ textDecoration: 'none' }}
@@ -322,6 +330,7 @@ export default function CategoryNavbar({ category }) {
           filterText={filterText}
           page={page}
           setPage={setPage}
+          sort={sort}
         />
       </main>
     </div>

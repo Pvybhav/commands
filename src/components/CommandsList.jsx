@@ -19,6 +19,7 @@ export default function CommandsList({
   filterText,
   page,
   setPage,
+  sort,
 }) {
   const classes = useStyles();
   const commands = UseCommands(category);
@@ -30,9 +31,24 @@ export default function CommandsList({
     setPage(1);
   }, [setPage]);
 
-  const filteredCommands = [...commands].filter(({ text }) =>
-    text.toLowerCase().includes(filterText.toLowerCase()),
-  );
+  let filteredCommands = filterText
+    ? [...commands].filter(({ text }) =>
+        text.toLowerCase().includes(filterText.toLowerCase()),
+      )
+    : [...commands];
+
+  if (sort !== null) {
+    if (sort) {
+      filteredCommands = filteredCommands.sort((a, b) =>
+        a.text.toLowerCase() < b.text.toLowerCase() ? -1 : 0,
+      );
+    } else {
+      filteredCommands = filteredCommands.sort((a, b) =>
+        b.text.toLowerCase() < a.text.toLowerCase() ? -1 : 0,
+      );
+    }
+  }
+
   const allCommandsLength = filteredCommands.length;
 
   const currentPageCommands = filteredCommands.splice(
