@@ -5,6 +5,7 @@ import { v4 as uuid } from 'uuid';
 import CategoryCard from '../components/CategoryCard';
 import Navbar from '../components/Navbar';
 import Categories from '../assets/data/Categories.json';
+const NoResults = React.lazy(() => import('../components/common/NoResults'));
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,6 +34,17 @@ export default function Home() {
   const [filterText, setFilterText] = useState('');
 
   function CategoriesList({ filterText }) {
+    const [categories, setCategories] = React.useState([]);
+    const [categoriesAvailable, setCategoriesAvailable] = React.useState(true);
+
+    React.useEffect(() => {
+      const filteredCategories = Categories.filter(({ name }) =>
+        name.toLowerCase().includes(filterText.toLowerCase()),
+      );
+      setCategories(filteredCategories);
+      setCategoriesAvailable(filteredCategories.length > 0);
+    }, [filterText]);
+
     return (
       <Grid
         container
@@ -42,19 +54,28 @@ export default function Home() {
         className={classes.grid}
         // justify="left"
       >
-        {Categories.filter(({ name }) =>
-          name.toLowerCase().includes(filterText.toLowerCase()),
-        ).map(({ name, description, iconPath, documentationUrl }) => (
-          <Grid key={uuid()} direction="row" xs={12} sm={6} md={4} lg={3}>
-            <CategoryCard
-              title={name}
-              description={description}
-              iconPath={iconPath}
-              documentationUrl={documentationUrl}
-              filterText={filterText}
-            />
-          </Grid>
-        ))}
+        {categoriesAvailable ? (
+          categories.map(
+            ({ name, description, iconPath, documentationUrl }) => (
+              <Grid key={uuid()} direction="row" xs={12} sm={6} md={4} lg={3}>
+                <CategoryCard
+                  title={name}
+                  description={description}
+                  iconPath={iconPath}
+                  documentationUrl={documentationUrl}
+                  filterText={filterText}
+                />
+              </Grid>
+            ),
+          )
+        ) : (
+          <NoResults
+            alertHeader={'Sorry, no results found!'}
+            alertMessage={
+              'Please check the spelling or try searching for something else'
+            }
+          />
+        )}
       </Grid>
     );
   }

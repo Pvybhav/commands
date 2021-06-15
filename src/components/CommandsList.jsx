@@ -5,6 +5,7 @@ import { v4 as uuid } from 'uuid';
 import UseCommands from '../hooks/UseCommands';
 const CommandRow = React.lazy(() => import('./CommandRow'));
 const CommandPagination = React.lazy(() => import('./CommandPagination'));
+const NoResults = React.lazy(() => import('./common/NoResults'));
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -65,21 +66,32 @@ export default function CommandsList({
 
   return (
     <>
-      <List className={classes.root}>
-        {currentPageCommands.map((command, index) => (
-          <CommandRow
-            key={uuid()}
-            command={command}
-            isLastItem={Boolean(index === currentPageCommands.length - 1)}
-            filterText={filterText}
+      {currentPageCommands.length > 0 ? (
+        <>
+          <List className={classes.root}>
+            {currentPageCommands.map((command, index) => (
+              <CommandRow
+                key={uuid()}
+                command={command}
+                isLastItem={Boolean(index === currentPageCommands.length - 1)}
+                filterText={filterText}
+              />
+            ))}
+          </List>
+          <CommandPagination
+            handleChange={handleChange}
+            page={page}
+            noOfPagesForPagination={noOfPagesForPagination}
           />
-        ))}
-      </List>
-      <CommandPagination
-        handleChange={handleChange}
-        page={page}
-        noOfPagesForPagination={noOfPagesForPagination}
-      />
+        </>
+      ) : (
+        <NoResults
+          alertHeader={'Sorry, no results found!'}
+          alertMessage={
+            'Please check the spelling or try searching for something else'
+          }
+        />
+      )}
     </>
   );
 }
