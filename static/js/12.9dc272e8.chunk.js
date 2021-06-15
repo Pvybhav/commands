@@ -1,0 +1,2 @@
+(this["webpackJsonpcommands-app"]=this["webpackJsonpcommands-app"]||[]).push([[12],{153:function(t,e,a){"use strict";a.r(e);var n=a(2),r=a(0),c=a.n(r),o=a(103),s=c.a.lazy((function(){return Promise.all([a.e(3),a.e(9)]).then(a.bind(null,134))})),p=Object(o.a)((function(t){return{root:{flexGrow:1},paper:{padding:t.spacing(2),textAlign:"center",color:t.palette.text.secondary}}}));e.default=function(t){var e=t.match.params.category,a=p();return Object(n.jsx)("div",{className:a.root,children:Object(n.jsx)(s,{category:e})})}}}]);
+//# sourceMappingURL=12.9dc272e8.chunk.js.map
